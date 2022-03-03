@@ -34,10 +34,7 @@ def connect_mqtt() -> mqtt_client:
     return client
 
 def on_message(client, userdata, msg):
-    # print(msg.payload, msg.topic)
     if(msg.topic == mqtt_topic):
-        # print(f"Received from topic `{msg.topic}`")
-        # print(type(msg.payload.decode()))
         data = json.loads(msg.payload.decode())
         timestamp = datetime.datetime.now()
         
